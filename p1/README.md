@@ -1,6 +1,6 @@
 # Project 1
 + By: Carly Gloge
-+ Production URL: eg <http://p1.yourdomain.com>
++ Production URL: eg <http://p1.boopboop.io>
 
 ## Outside resources
 *your list of outside resources go here*
