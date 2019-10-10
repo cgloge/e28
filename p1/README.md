@@ -3,7 +3,7 @@
 + Production URL: eg <http://p1.boopboop.io>
 
 ## Outside resources
-*your list of outside resources go here*
+None
 
 ## Notes for instructor
-*any notes for me to refer to while grading; if none, omit this section*
+
