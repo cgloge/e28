@@ -18,6 +18,7 @@
                 </tr>
             </tbody>
         </table>
+        <button class="playAgain" v-if="gameOver" onClick="window.location.reload();">Play again</button>
   </div>
 </template>
 
@@ -143,6 +144,6 @@ button {
     color: red;
 }
 .playAgain {
-    width: 60pt;
+    width: 100pt;
 }
 </style>
