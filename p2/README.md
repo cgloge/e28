@@ -1,24 +1,10 @@
-# p2
+# Project 2
++ By: Carly Gloge
++ Production URL: eg <http://p2.boopboop.io>
 
-## Project setup
-```
-npm install
-```
+## Outside resources
+None
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Notes for instructor
+* I decided to make the countdown clock the main component since that felt like a re-usable object for other games
+* I could have made each of the buttons in a grid their own component, but didn't see much value in creating a container beyond the button object itself that doesn't provide much functionality. I'll consider this for future projects if I want to add new functionality.
