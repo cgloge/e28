@@ -2,7 +2,9 @@
   <div id="app">
     <h1>Find the hidden character</h1>
     <p>Click on the button with the unique character before the clock runs out.</p> 
-    <Countdown v-on:countdown-complete='setGameOver()'>
+    <Countdown
+      v-on:countdown-complete='setGameOver()'
+      v-bind:seconds='timeRemaining'>
     </Countdown>
     <p><b>Total Points:</b> {{ points }} </p>
     <!-- Dynamic table -->
@@ -43,10 +45,12 @@ export default {
         // Grid data
         rows: [],
         gameOver: false,
+        timeRemaining: 10
     }
   },
   methods: {
-    setGameOver(){
+    setGameOver() {
+      this.timeRemaining = 0;
       this.gameOver = true;
     },
     // Dynamically create a grid of buttons Xs with 1 random character randomly placed in the grid
@@ -74,11 +78,11 @@ export default {
             this.points++; 
             this.totalRows++;
             this.generateGrid(this.totalRows);
-            this.seconds = 10;
         }
         else{
             // TODO Clear timer
-            this.seconds = "That wasn't the hidden character. Game Over!";
+            // TODO"That wasn't the hidden character. Game Over!";
+            this.timeRemaining = 0;
             this.gameOver = true;
         }
     },

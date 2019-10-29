@@ -7,15 +7,20 @@
 <script>
 export default {
     data: function() {
-        return {
-            seconds: 10
-        };
+        return { };
+    },
+    props: {
+        seconds: {
+            type: Number
+        }
     },
     methods: {
         countdown: function() {  
-            const self = this;          
+            const self = this;     
             this.timer = setInterval(function() {
-                self.seconds--;
+                if (self.seconds > 0) {
+                    self.seconds--;
+                }
                 if (self.seconds <= 0) {
                     //Fire event and clear the interval
                     self.$emit('countdown-complete');
