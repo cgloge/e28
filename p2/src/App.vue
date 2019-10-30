@@ -4,7 +4,8 @@
     <p>Click on the button with the unique character before the clock runs out.</p> 
     <Countdown
       v-on:countdown-complete='setGameOver()'
-      v-bind:seconds='timeRemaining'>
+      ref="countdown"
+    >
     </Countdown>
     <p><b>Total Points:</b> {{ points }} </p>
     <!-- Dynamic table -->
@@ -12,12 +13,12 @@
             <tbody>
                 <tr v-for="(row, i) in rows" :key="i"> 
                   <td v-for="(col, j) in columns" :key="j">
-                    <!-- TODO: Add on-click event -->
                     <button v-on:click="scoreClick($event)" type="button" :id=row[col]>{{row[col]}}</button>
                 </td> 
                 </tr>
             </tbody>
         </table>
+        <p>{{message}}</p>
         <button class="playAgain" v-if="gameOver" onClick="window.location.reload();">Play again</button>
   </div>
 </template>
@@ -45,13 +46,11 @@ export default {
         j: 0,
         // Grid data
         rows: [],
-        gameOver: false,
-        timeRemaining: 10
+        gameOver: false
     }
   },
   methods: {
     setGameOver() {
-      this.timeRemaining = 0;
       this.gameOver = true;
     },
     // Dynamically create a grid of buttons Xs with 1 random character randomly placed in the grid
@@ -79,12 +78,14 @@ export default {
             this.points++; 
             this.totalRows++;
             this.generateGrid(this.totalRows);
+            // Reset clock back to 10 seconds
+            this.$refs.countdown.resetClock();
         }
         else{
-            // TODO Clear timer
-            // TODO"That wasn't the hidden character. Game Over!";
-            this.timeRemaining = 0;
+            // Stop clock at 0
+            this.$refs.countdown.stopClock();
             this.gameOver = true;
+            this.message = "That wasn't the hidden character!";
         }
     },
   },

@@ -7,16 +7,13 @@
 <script>
 export default {
     data: function() {
-        return { };
-    },
-    props: {
-        seconds: {
-            type: Number
+        return { 
+            seconds: 10    
         }
     },
     methods: {
         countdown: function() {  
-            const self = this;     
+            const self = this;  
             this.timer = setInterval(function() {
                 if (self.seconds > 0) {
                     self.seconds--;
@@ -28,6 +25,12 @@ export default {
                 }
             }, 1000);
         },
+        stopClock: function () {
+            this.seconds = 0;
+        },
+        resetClock: function () {
+            this.seconds = 10;
+        }
     },
     watch: {
     },
