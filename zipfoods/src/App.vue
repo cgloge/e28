@@ -1,23 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="logo" src="./assets/images/zipfoods-logo.png">
-    <p>ZipFoods is your one-stop-shop for convenient online grocery shopping in the greater Boston area.</p>
-    <show-featured :category='"snacks"'></show-featured>
-    <ShowProducts/>
-  </div>
+    <div id='app'>
+        <img id='logo' alt='ZipFoods logo' src='./assets/images/zipfoods-logo.png' />
+
+        <nav>
+            <ul>
+                <li v-for='link in links' :key='link'>
+                    <router-link exact :to='paths[link]'>{{ link }}</router-link>
+                </li>
+            </ul>
+        </nav>
+
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
-import ShowProducts from './components/ShowProducts.vue'
-import ShowFeatured from './components/ShowFeatured.vue'
+import { products } from './products.js';
 
 export default {
-  name: 'app',
-  components: {
-    ShowProducts,
-    ShowFeatured
-  }
-}
+    name: 'app',
+    components: {},
+    data: function() {
+        return {
+            products: products,
+            // src/App.vue data properties
+            links: ['home', 'products', 'categories'],
+            paths: {
+                home: '/',
+                products: '/products',
+                categories: '/categories'
+            }
+        };
+    }
+};
 </script>
 
 <style lang='scss'>

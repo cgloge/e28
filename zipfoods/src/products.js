@@ -109,4 +109,4 @@ export const products = [
         perishable: false,
         categories: ['beverages']
     }
-  ]
+]

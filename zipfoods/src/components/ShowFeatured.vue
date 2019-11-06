@@ -11,26 +11,23 @@
 import { products } from './../products.js';
 
 export default {
-  name: 'ShowFeatured',
-  props: {
-    category: String
-  },
-  data: function() {
-    return {
-      products: products
-    };
-  },
-  computed : {
-    featuredProducts: function() {
-    function isMatch(product) {
-        return product.categories.includes(this);
+    name: 'ShowFeatured',
+    props: ['category'],
+    computed: {
+        featuredProducts: function() {
+            function isMatch(product) {
+                return product.categories.includes(this);
+            }
+            return this.products.filter(isMatch, this.category);
+        }
+    },
+    data: function() {
+        return {
+            products: products
+        };
     }
-    return this.products.filter(isMatch, this.category);
-    }
-  },
-}
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>
