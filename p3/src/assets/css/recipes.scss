@@ -1,0 +1,201 @@
+/*----------------------------------------------------
+VARIABLES
+-----------------------------------------------------*/
+$radius:5px;
+
+// Imported from Siete's style guide
+$medianoche: #1E1A34;
+$gold: #F2A900;
+$fuego: #ED8B00;
+$violeta: #C724B1;
+$turquesa: #00A3AD;
+$grey: #3F3C52;
+
+/* box sizing: http://www.paulirish.com/2012/box-sizing-border-box-ftw */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    /* http://snook.ca/archives/html_and_css/font-size-with-rem */
+    color: $medianoche;
+    font-family: Verdana, Geneva, sans-serif;
+
+    /* Have the scroll bars always on so there's not a shift in the layout
+    when going from a non-scrolling page to a scrolling-page */
+    overflow-y: scroll;
+}
+
+body {
+    /* Default font-size */
+    font-size: 1.6rem;
+
+    /* sticky footer - match footer height */
+    margin-bottom: 60px;
+}
+
+/*----------------------------------------------------
+GENERAL PAGE LAYOUT/DESIGN
+-----------------------------------------------------*/
+#app {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+    text-align: center;
+
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#logo {
+    /* Actual width is 98; displaying at half-size for retina screens */
+    width: 49px;
+}
+
+nav ul {
+    list-style-type: none;
+
+    li {
+        display: inline-block;
+
+        a:link,
+        a:visited,
+        a:active,
+        a:hover {
+            text-transform: capitalize;
+            padding: 5px;
+            margin: 5px;
+            cursor: pointer;
+            color: $grey;
+        }
+
+        a:hover {
+            color: $violeta;
+            text-decoration: none;
+        }
+
+        a.router-link-active:link,
+        a.router-link-active:visited,
+        a.router-link-active:active,
+        a.router-link-active:hover {
+            text-decoration: none;
+            color: $medianoche;
+            background-color: white;
+            cursor: inherit;
+        }
+    }
+}
+
+h1 {
+    font-weight: normal;
+}
+
+p {
+    font-size: 1.5rem;
+    color: $grey;
+}
+
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    opacity: 80%;
+  }
+
+/*----------------------------------------------------
+PAGE SPECIFIC
+-----------------------------------------------------*/
+#recipes {
+    .recipe {
+        float: left;
+        width: 400px;
+        height: 300px;
+        margin: 0px;
+        margin-bottom: 20px;
+        padding: 20px;
+
+        .recipe-name {
+            font-weight: normal;
+            font-size: 2.0rem;
+            margin: 5px 0 10px 0;
+        }
+
+        .recipe-thumb {
+            width: 350px;
+        }
+
+        .recipe-description {
+            width: 75%;
+            margin: auto;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .recipe-price {
+            font-size: 2.0rem;
+        }
+    }
+}
+
+#featured {
+    border-radius: $radius;
+    padding: 10px;
+}
+
+#recipe-page {
+    img {
+        width: 600px;
+    }
+
+    .price {
+        font-size: 2rem;
+    }
+
+    button {
+        display: block;
+        margin: 10px auto;
+        font-size: 2rem;
+    }
+}
+
+/*----------------------------------------------------
+MISC
+-----------------------------------------------------*/
+.cleanList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.alert {
+    background-color: $gold;
+    color: white;
+    border-radius: $radius;
+    font-weight: bold;
+    padding: 5px;
+    margin: 5px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active below version 2.1.8 */
+    {
+    opacity: 0;
+}
