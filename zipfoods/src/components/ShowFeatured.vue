@@ -8,6 +8,7 @@
 </template>
 
 <script>
+// ToDo: Refactor this component so it gets products from the API rather than products.js
 import { products } from './../products.js';
 
 export default {
