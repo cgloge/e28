@@ -5,7 +5,7 @@ import RecipesPage from './components/pages/RecipesPage.vue';
 import HomePage from './components/pages/HomePage.vue';
 import CategoriesPage from './components/pages/CategoriesPage.vue';
 import RecipePage from './components/pages/RecipePage.vue';
-import CartPage from './components/pages/CartPage.vue';
+import FavoritePage from './components/pages/FavoritePage.vue';
 
 Vue.use(VueRouter);
 Vue.config.recipeionTip = false
@@ -15,7 +15,7 @@ const routes = [
     { path: '/recipes', component: RecipesPage, name: 'recipes' },
     { path: '/recipe/:id', component: RecipePage, name: 'recipe', props: true },
     { path: '/categories', component: CategoriesPage, name: 'categories' },
-    { path: '/cart', component: CartPage, name: 'cart' }
+    { path: '/favorite recipes', component: FavoritePage, name: 'favorite recipes' }
 ]
 
 const router = new VueRouter({

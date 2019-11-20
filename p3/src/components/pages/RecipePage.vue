@@ -10,10 +10,10 @@
         <p class='description'>{{ recipe.description }}</p>
         <div class='price'>${{ recipe.price }}</div>
 
-        <button @click='addToCart(recipe.id)'>Add to cart</button>
+        <button @click='addToFavorites(recipe.id)'>Favorite Recipe </button>
 
         <transition name='fade'>
-            <div class='alert' v-if='addAlert'>Your cart has been updated!</div>
+            <div class='alert' v-if='addAlert'>Added to favorite recipes!</div>
         </transition>
 
         <router-link :to='"/recipes"'>&larr; Return to all recipes</router-link>
@@ -40,11 +40,11 @@ export default {
             });
     },
     methods: {
-        addToCart: function(recipeId) {
-            let cart = new app.Cart();
-            cart.add(recipeId);
+        addToFavorites: function(recipeId) {
+            let favorite = new app.Favorite();
+            favorite.add(recipeId);
 
-            app.store.cartCount = cart.count();
+            app.store.favoriteCount = favorite.count();
 
             this.addAlert = true;
 

@@ -1,6 +1,6 @@
 <template>
     <div id='recipes'>
-        <h2>Easy, delicious, and extra share-able recipes!</h2>
+        <h1>Easy, delicious, and extra share-able recipes!</h1>
         <show-recipe v-for='recipe in recipes' :key='recipe.id' :recipe='recipe'></show-recipe>
         <!-- Dynamic table -->
     </div>

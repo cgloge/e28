@@ -1,12 +1,12 @@
 <template>
-    <div id='cart-page'>
-        <h1>Your Cart</h1>
+    <div id='favorite-page'>
+        <h1>Your Favorites</h1>
 
         <div v-if='items.length == 0'>No items</div>
 
         <ul v-else-if='recipes.length > 0' class='cleanList'>
             <li v-for='item in items' :key='item.id'>
-                <button @click='removeFromCart(item.id)'>Remove</button>
+                <button @click='removeFromFavorite(item.id)'>Remove</button>
                 {{ item.quantity }} x {{ getRecipeDetails(item.id)['name'] }}
             </li>
         </ul>
@@ -17,11 +17,11 @@
 import * as app from './../../app.js';
 
 export default {
-    name: 'CartPage',
+    name: 'FavoritePage',
     data: function() {
         return {
             items: [],
-            cart: null,
+            favorite: null,
             recipes: []
         };
     },
@@ -29,20 +29,18 @@ export default {
         getRecipeDetails(recipeId) {
             return this.recipes.find(({ id }) => id === recipeId);
         },
-        removeFromCart: function(recipeId) {
-            this.cart.remove(recipeId);
+        removeFromFavorite: function(recipeId) {
+            this.favorite.remove(recipeId);
 
-            app.store.cartCount = this.cart.count();
+            app.store.favoriteCount = this.favorite.count();
         }
     },
     mounted() {
-        this.cart = new app.Cart();
+        this.favorite = new app.Favorite();
 
-        this.items = this.cart.getItems();
+        this.items = this.favorite.getItems();
 
-        // It would be more ideal if we could ping our server-api for *just*
-        // the recipes that are in our cart. However, we don't have that option
-        // with our Mock API, so we’re fetching all the recipe data.
+        // Future wishlist: change this to pull from true DB
         this.recipes = app.axios
             .get(app.config.api + 'recipes')
             .then(response => (this.recipes = response.data));
