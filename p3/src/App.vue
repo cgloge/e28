@@ -7,7 +7,7 @@
                 <li v-for='link in links' :key='link'>
                     <router-link exact :to='{ name: link }'>
                         {{ link }}
-                        <span v-if='link == "favorite"'>({{ sharedState.favoriteCount }})</span>
+                        <span v-if='link == "favorites"'>({{ sharedState.favoriteCount }})</span>
                     </router-link>
                 </li>
             </ul>
@@ -25,7 +25,7 @@ export default {
     components: {},
     data: function() {
         return {
-            links: ['recipes', 'favorite recipes'],
+            links: ['recipes', 'favorites'],
             sharedState: app.store
         };
     },

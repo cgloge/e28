@@ -13,7 +13,7 @@
         <button @click='addToFavorites(recipe.id)'>Favorite Recipe </button>
 
         <transition name='fade'>
-            <div class='alert' v-if='addAlert'>Added to favorite recipes!</div>
+            <div class='alert' v-if='addAlert'>Added to favorite!</div>
         </transition>
 
         <router-link :to='"/recipes"'>&larr; Return to all recipes</router-link>

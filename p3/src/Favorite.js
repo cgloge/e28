@@ -4,11 +4,11 @@ export default class Favorite {
      * 
      */
     constructor() {
-        // Extract JSON favorte string from local storage
-        let favorte = localStorage.getItem('favorte');
+        // Extract JSON favorite string from local storage
+        let favorite = localStorage.getItem('favorite');
 
-        // Parse JSON favorte String to `items` object
-        this.items = (favorte) ? JSON.parse(favorte) : [];
+        // Parse JSON favorite String to `items` object
+        this.items = (favorite) ? JSON.parse(favorite) : [];
     }
 
     /**
@@ -19,7 +19,7 @@ export default class Favorite {
     }
 
     /**
-     * Returns how many total items are in the favorte
+     * Returns how many total items are in the favorite
      */
     count() {
         let sum = 0;
@@ -30,10 +30,10 @@ export default class Favorite {
     }
 
     /**
-     * Updates favorte in localstorage
+     * Updates favorite in localstorage
      */
     update() {
-        localStorage.setItem('favorte', JSON.stringify(this.items))
+        localStorage.setItem('favorite', JSON.stringify(this.items))
     }
 
     /**
@@ -41,21 +41,15 @@ export default class Favorite {
      */
     add(recipeId, quantity = 1) {
 
-        // First see if recipe is already present
+        // Check if the recipe is already in favorites, if it isn't add it to favorites
         let item = this.getItem(recipeId)
 
-        if (item) {
-            // Recipe is in favorte already; increment quantity by 1
-            item.quantity += quantity;
-
-        } else {
-            // Recipe not in favorte, add as new item
+        if (!item) {
             this.items.push({
                 id: recipeId,
                 quantity: quantity
             });
-        }
-
+        } 
         this.update();
     }
 

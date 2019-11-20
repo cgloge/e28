@@ -7,7 +7,7 @@
         <ul v-else-if='recipes.length > 0' class='cleanList'>
             <li v-for='item in items' :key='item.id'>
                 <button @click='removeFromFavorite(item.id)'>Remove</button>
-                {{ item.quantity }} x {{ getRecipeDetails(item.id)['name'] }}
+                {{ getRecipeDetails(item.id)['name'] }}
             </li>
         </ul>
     </div>

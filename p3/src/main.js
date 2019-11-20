@@ -15,7 +15,7 @@ const routes = [
     { path: '/recipes', component: RecipesPage, name: 'recipes' },
     { path: '/recipe/:id', component: RecipePage, name: 'recipe', props: true },
     { path: '/categories', component: CategoriesPage, name: 'categories' },
-    { path: '/favorite recipes', component: FavoritePage, name: 'favorite recipes' }
+    { path: '/favorites', component: FavoritePage, name: 'favorites' }
 ]
 
 const router = new VueRouter({
