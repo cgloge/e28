@@ -8,13 +8,24 @@
             :src='"./../../assets/images/recipes/" + recipe.id + ".jpg"'
         />
         <p class='description'>{{ recipe.description }}</p>
-        <div class='price'>${{ recipe.price }}</div>
+        <div class='servings'>Servings: {{ recipe.servings }}</div>
 
         <button @click='addToFavorites(recipe.id)'>Favorite Recipe </button>
 
         <transition name='fade'>
             <div class='alert' v-if='addAlert'>Added to favorite!</div>
         </transition>
+
+        <b>Ingredients:</b>
+        <ul class='cleanList'>
+            <li v-for='item in recipe.ingredients' :key='item.ingredient'>
+                <button class ='ingredient'>
+                {{ item.qty + ' ' + item.unit + ' ' + item.ingredient }}
+                <span class='shoppingListBtn' > <img src='./../../assets/images/shopping-list.png'></span>
+                </button>
+                
+            </li>
+        </ul>
 
         <router-link :to='"/recipes"'>&larr; Return to all recipes</router-link>
     </div>

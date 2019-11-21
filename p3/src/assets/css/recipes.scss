@@ -2,6 +2,7 @@
 VARIABLES
 -----------------------------------------------------*/
 $radius:5px;
+$icon-size:24px;
 
 // Imported from Siete's style guide
 $medianoche: #1E1A34;
@@ -146,7 +147,7 @@ PAGE SPECIFIC
             font-style: italic;
         }
 
-        .recipe-price {
+        .recipe-servings {
             font-size: 2.0rem;
         }
     }
@@ -162,7 +163,7 @@ PAGE SPECIFIC
         width: 600px;
     }
 
-    .price {
+    .servings {
         font-size: 2rem;
     }
 
@@ -170,6 +171,30 @@ PAGE SPECIFIC
         display: block;
         margin: 10px auto;
         font-size: 2rem;
+    }
+
+    .ingredient {
+        padding: 0;
+        border: none;
+        background: none;
+        padding-left: $icon-size;
+    }
+
+    .ingredient:hover {
+        cursor: pointer;
+        color: $turquesa;
+    }
+
+    .ingredient img{
+        opacity: 0%; 
+        width: $icon-size;
+        height: $icon-size;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .ingredient:hover img {
+        opacity: 100%;
     }
 }
 
