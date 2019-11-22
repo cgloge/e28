@@ -1,4 +1,5 @@
 export { default as Favorite } from './Favorite';
+export { default as Ingredient } from './Ingredient';
 
 export const axios = require('axios');
 

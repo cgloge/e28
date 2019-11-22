@@ -13,15 +13,15 @@
         <button @click='addToFavorites(recipe.id)'>Favorite Recipe </button>
 
         <transition name='fade'>
-            <div class='alert' v-if='addAlert'>Added to favorite!</div>
+            <div class='alert' v-if='addAlert'>Added!</div>
         </transition>
 
         <b>Ingredients:</b>
         <ul class='cleanList'>
             <li v-for='item in recipe.ingredients' :key='item.ingredient'>
-                <button class ='ingredient'>
+                <button @click='addToIngredients(item.ingredient, item.qty)' class ='ingredient'>
                 {{ item.qty + ' ' + item.unit + ' ' + item.ingredient }}
-                <span class='shoppingListBtn' > <img src='./../../assets/images/shopping-list.png'></span>
+                <img src='./../../assets/images/shopping-list.png'>
                 </button>
                 
             </li>
@@ -40,7 +40,7 @@ export default {
     data: function() {
         return {
             recipe: null,
-            addAlert: false
+            addAlert: false,
         };
     },
     mounted() {
@@ -58,6 +58,24 @@ export default {
             app.store.favoriteCount = favorite.count();
 
             this.addAlert = true;
+
+            setTimeout(() => (this.addAlert = false), 2000);
+        },
+        addToIngredients: function(ingredientName, ingredientQty) {
+            let ingredient = new app.Ingredient();
+            ingredient.add(ingredientName, ingredientQty);
+
+            app.store.ingredientCount = ingredient.count();
+
+            this.addAlert = true;
+
+            setTimeout(() => (this.addAlert = false), 2000);
+        },
+        addToShoppingList: function(ingredientName) {
+            let ingredient = new app.Ingredient();
+            ingredient.add(ingredientName);
+
+            app.store.ingredientCount = ingredient.count();
 
             setTimeout(() => (this.addAlert = false), 2000);
         }

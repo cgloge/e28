@@ -25,12 +25,13 @@ export default {
     components: {},
     data: function() {
         return {
-            links: ['recipes', 'favorites'],
+            links: ['recipes', 'favorite recipes', 'shopping list'],
             sharedState: app.store
         };
     },
     mounted() {
         this.favorite = new app.Favorite();
+        this.ingredient = new app.Ingredient();
         app.store.favoriteCount = this.favorite.count();
     }
 };
