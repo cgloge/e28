@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 Vue.config.recipeionTip = false
 
 const routes = [
-    { path: '/', component: RecipesPage, name: 'recipes' },
+    { path: '/', component: RecipesPage, name: '' },
     { path: '/recipes', component: RecipesPage, name: 'recipes' },
     { path: '/recipe/:id', component: RecipePage, name: 'recipe', props: true },
     { path: '/categories', component: CategoriesPage, name: 'categories' },

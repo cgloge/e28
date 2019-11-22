@@ -109,6 +109,7 @@ p {
 
 a:link {
     text-decoration: none;
+    color: $grey;
   }
   
   a:visited {
@@ -251,6 +252,10 @@ PAGE SPECIFIC
             border-radius: $radius;
             padding: 40px;
             height: 100%;
+
+            h1{
+                text-align: left;
+            }
 
             button {
                 width: 100%;

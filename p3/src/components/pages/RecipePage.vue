@@ -42,7 +42,7 @@
             <div id='ingredient-list'>
                 <h1>Ingredients:</h1>
                 <div v-for='item in recipe.ingredients' :key='item.ingredient'>
-                    <button @click='addToIngredients(item.ingredient, item.qty)' class ='ingredient'>
+                    <button @click='addToIngredients(item.ingredient, 1)' class ='ingredient'>
                     {{ item.qty + ' ' + item.unit + ' ' + item.ingredient }}
                     <img src='./../../assets/images/shopping-list.png'>
                     </button>  
@@ -90,10 +90,6 @@ export default {
             ingredient.add(ingredientName, ingredientQty);
 
             app.store.ingredientCount = ingredient.count();
-
-            this.addAlert = true;
-
-            setTimeout(() => (this.addAlert = false), 2000);
         },
         addToShoppingList: function(ingredientName) {
             let ingredient = new app.Ingredient();
