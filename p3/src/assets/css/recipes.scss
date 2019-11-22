@@ -118,7 +118,7 @@ a:link {
   }
 
   a:hover {
-    opacity: 80%;
+    opacity: 0.8;
   }
 
 /*----------------------------------------------------
@@ -191,11 +191,11 @@ PAGE SPECIFIC
         .favorite img {
             width: $icon-size;
             height: $icon-size;
-            opacity: 20%;
+            opacity: 0.2;
             cursor: pointer;
         }
         .favorite img:hover {
-            opacity: 100%;
+            opacity: 1;
         }
 
         .favorite:focus {
@@ -279,7 +279,7 @@ PAGE SPECIFIC
             }
         
             .ingredient img{
-                opacity: 0%; 
+                opacity: 0; 
                 width: $icon-size;
                 height: $icon-size;
                 display: inline-block;
@@ -287,7 +287,7 @@ PAGE SPECIFIC
             }
         
             .ingredient:hover img {
-                opacity: 100%;
+                opacity: 1;
             }
 
         }    
