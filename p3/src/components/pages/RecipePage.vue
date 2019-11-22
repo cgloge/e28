@@ -9,6 +9,7 @@
         />
         <p class='description'>{{ recipe.description }}</p>
         <div class='servings'>Servings: {{ recipe.servings }}</div>
+        <div class='cook-time'>Cook time: {{ recipe.time + ' mins' }}</div>
 
         <button @click='addToFavorites(recipe.id)'>Favorite Recipe </button>
 

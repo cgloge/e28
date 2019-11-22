@@ -1,6 +1,6 @@
 <template>
     <div id='favorite-page'>
-        <h1>Your Favorites</h1>
+        <h1>Your Favorite Recipes</h1>
 
         <div v-if='items.length == 0'>No items</div>
 
