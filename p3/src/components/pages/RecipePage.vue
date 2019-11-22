@@ -1,34 +1,57 @@
 <template>
     <div id='recipe-page' v-if='recipe'>
-        <h1>{{ recipe.name }}</h1>
-        <img
-            v-if='recipe.id'
-            class='recipe-thumb'
-            :alt='"Recipe image of  " + recipe.name'
-            :src='"./../../assets/images/recipes/" + recipe.id + ".jpg"'
-        />
-        <p class='description'>{{ recipe.description }}</p>
-        <div class='servings'>Servings: {{ recipe.servings }}</div>
-        <div class='cook-time'>Cook time: {{ recipe.time + ' mins' }}</div>
-
-        <button @click='addToFavorites(recipe.id)'>Favorite Recipe </button>
-
-        <transition name='fade'>
-            <div class='alert' v-if='addAlert'>Added!</div>
-        </transition>
-
-        <b>Ingredients:</b>
-        <ul class='cleanList'>
-            <li v-for='item in recipe.ingredients' :key='item.ingredient'>
-                <button @click='addToIngredients(item.ingredient, item.qty)' class ='ingredient'>
-                {{ item.qty + ' ' + item.unit + ' ' + item.ingredient }}
-                <img src='./../../assets/images/shopping-list.png'>
+        <div class='recipe-thumb'>
+            <img
+                v-if='recipe.id'
+                :alt='"Recipe image of  " + recipe.name'
+                :src='"./../../assets/images/recipes/" + recipe.id + ".jpg"'
+            />
+        </div>
+        <div class='recipe-overview'>
+            <h1>
+                {{ recipe.name }}
+                <button class="favorite" @click='addToFavorites(recipe.id)'>
+                     <img src='./../../assets/images/favorite.png'>
                 </button>
-                
-            </li>
-        </ul>
+            </h1>
+            <div class='alert-box'>
+                <transition name='fade'>
+                    <div class='alert' v-if='addAlert'>Added!</div>
+                </transition>
+            </div>
+            <p class='description'>{{ recipe.description }}</p>
+            <div class='servings'>
+                {{ recipe.servings }}
+            </div>
+            <div class='cook-time'>
+                {{ recipe.time}}
+                <br />
+                <span>mins</span>
+            </div>
 
-        <router-link :to='"/recipes"'>&larr; Return to all recipes</router-link>
+        </div>
+        <div id='recipe-details'>
+            <div id='directions'>
+                <h1>Directions:</h1>
+                <ol >
+                    <li v-for='item in recipe.directions' :key='item.directions'>
+                        <span>{{ item }}</span>
+                    </li>
+                </ol>
+            </div>
+            <div id='ingredient-list'>
+                <h1>Ingredients:</h1>
+                <div v-for='item in recipe.ingredients' :key='item.ingredient'>
+                    <button @click='addToIngredients(item.ingredient, item.qty)' class ='ingredient'>
+                    {{ item.qty + ' ' + item.unit + ' ' + item.ingredient }}
+                    <img src='./../../assets/images/shopping-list.png'>
+                    </button>  
+                </div>
+            </div>
+        </div>
+        <div class="all-recipes">
+            <router-link :to='"/recipes"'>&larr; Return to all recipes</router-link>
+        </div>
     </div>
 </template>
 

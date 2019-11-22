@@ -8,5 +8,6 @@ export const config = {
 }
 
 export let store = {
-    favoriteCount: 0
+    favoriteCount: 0,
+    ingredientCount: 0
 }
