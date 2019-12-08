@@ -1,0 +1,346 @@
+/*----------------------------------------------------
+VARIABLES
+-----------------------------------------------------*/
+$radius:5px;
+$icon-size:20px;
+$big-icon-size: 80px;
+
+// Imported from Siete's style guide
+$medianoche: #1E1A34;
+$gold: #F2A900;
+$fuego: #ED8B00;
+$violeta: #C724B1;
+$turquesa: #00A3AD;
+$grey: #3F3C52;
+$light-grey :#eeedf2;
+
+/* box sizing: http://www.paulirish.com/2012/box-sizing-border-box-ftw */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    /* http://snook.ca/archives/html_and_css/font-size-with-rem */
+    color: $medianoche;
+    font-family: Verdana, Geneva, sans-serif;
+
+    /* Have the scroll bars always on so there's not a shift in the layout
+    when going from a non-scrolling page to a scrolling-page */
+    overflow-y: scroll;
+}
+
+body {
+    /* Default font-size */
+    font-size: 1.6rem;
+
+    /* sticky footer - match footer height */
+    margin-bottom: 60px;
+}
+
+/*----------------------------------------------------
+GENERAL PAGE LAYOUT/DESIGN
+-----------------------------------------------------*/
+#app {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+    text-align: center;
+
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#logo {
+    /* Actual width is 98; displaying at half-size for retina screens */
+    width: 49px;
+}
+
+nav ul {
+    list-style-type: none;
+
+    li {
+        display: inline-block;
+
+        a:link,
+        a:visited,
+        a:active,
+        a:hover {
+            text-transform: capitalize;
+            padding: 5px;
+            margin: 5px;
+            cursor: pointer;
+            color: $grey;
+        }
+
+        a:hover {
+            color: $violeta;
+            text-decoration: none;
+        }
+
+        a.router-link-active:link,
+        a.router-link-active:visited,
+        a.router-link-active:active,
+        a.router-link-active:hover {
+            text-decoration: none;
+            color: $medianoche;
+            background-color: white;
+            cursor: inherit;
+        }
+    }
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 2.5rem;
+    padding-top: 10pt;
+}
+
+p {
+    font-size: 1.5rem;
+    color: $grey;
+}
+
+a:link {
+    text-decoration: none;
+    color: $grey;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: $grey;
+  }
+
+  a:hover {
+    color: $turquesa;
+  }
+
+/*----------------------------------------------------
+PAGE SPECIFIC
+-----------------------------------------------------*/
+#recipes {
+    .recipe {
+        float: left;
+        width: 400px;
+        height: 300px;
+        margin: 0px;
+        margin-bottom: 20px;
+        padding: 20px;
+
+        .recipe-name {
+            font-weight: normal;
+            font-size: 2.0rem;
+            margin: 5px 0 10px 0;
+        }
+
+        .recipe-thumb {
+            width: 380px;
+        }
+
+        .recipe-description {
+            width: 75%;
+            margin: auto;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .recipe-servings {
+            font-size: 2.0rem;
+        }
+    }
+}
+
+#featured {
+    border-radius: $radius;
+    padding: 10px;
+}
+
+#recipe-page {
+
+    .recipe-thumb {
+        width: 700px;
+        float: left;
+        padding: 35px 0 0 0;
+    }
+
+    .recipe-thumb img {
+        width: 700px;
+    }
+
+    .recipe-overview {
+        padding: 10px 0 0 40px;
+        width: 500px;
+        height: 400px;
+        float: left;
+        text-align: left;
+
+        .favorite {
+            display: inline-block;
+            border: none;
+            background: none;
+            vertical-align: middle;
+            margin: 2px 0 0 -10px;
+        }
+    
+        .favorite img {
+            width: $icon-size;
+            height: $icon-size;
+            cursor: pointer;
+        }
+        
+        .favorite:focus {
+            outline:0;
+        }
+
+        .alert-box {
+            height: 8px;
+            width: 100%;
+            margin: -12px 0 25px 0;
+        }
+
+        .servings {
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            height: $big-icon-size;
+            width: $big-icon-size;
+            padding: 25px 0 0 4px;
+            font-size: 2rem;
+            background: url('../src/assets/images/servings.png') no-repeat 0 0;
+            background-size: $big-icon-size;
+        }
+
+        .cook-time {
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            height: $big-icon-size;
+            width: $big-icon-size;
+            line-height: 12px;
+            padding: 30px 0 0 3px;
+            margin: 0 0 0 10px;
+            font-size: 2rem;
+            background: url('../src/assets/images/cook-time.png') no-repeat 0 0 ;
+            background-size: 65px;
+            background-position: center;
+        }
+
+        .cook-time span {
+            padding: -20px 0 0 0;
+            font-size: 0.5rem;
+        }
+    }
+
+    #recipe-details {
+
+        #ingredient-list {
+            text-align: right;
+            float: left;
+            width: 460px;
+            margin: 0 0 0 40px;
+            background: $light-grey;
+            border-radius: $radius;
+            padding: 40px;
+            height: 100%;
+
+            h1{
+                text-align: left;
+            }
+
+            button {
+                width: 100%;
+                text-align: left;
+                display: block;
+                float: left;
+                margin: 5px 0 0 -20px;
+                font-size: 1.5rem;
+            }
+        
+            .ingredient {
+                padding: 0;
+                border: none;
+                background: none;
+                padding-left: $icon-size;
+            }
+        
+            .ingredient:hover {
+                cursor: pointer;
+                color: $turquesa;
+            }
+        
+            .ingredient img{
+                width: $icon-size;
+                height: $icon-size;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+        }    
+        #directions {
+            text-align: left;
+            float: left;
+            width: 700px;
+
+            ol {
+                margin: 40px 0 0 0;
+            }
+
+            li {
+                list-style: decimal-leading-zero;
+                font-size: 3em;
+                margin: 0 0 0 1.25em;
+                line-height: 10px;
+                padding: 0 0 60px 0;
+            }
+            
+            li span {
+                font-size: 0.3em;
+                vertical-align: middle;
+                
+            }
+        }   
+    }
+    .all-recipes{
+        clear: both;
+        width: 100%;
+    }
+    .all-recipes a {
+        color: $turquesa;
+    }
+    
+}
+
+/*----------------------------------------------------
+MISC
+-----------------------------------------------------*/
+.cleanList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.alert {
+    background-color: $gold;
+    color: white;
+    border-radius: $radius;
+    font-weight: bold;
+    padding: 5px 5px 5px 10px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active below version 2.1.8 */
+    {
+    opacity: 0;
+}
