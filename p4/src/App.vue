@@ -8,7 +8,7 @@
                     <router-link exact :to='{ name: link }'>
                         {{ link }}
                         <span v-if='link == "favorite recipes"'>({{ sharedState.favoriteCount }})</span>
-                        <span v-if='link == "shopping list"'>({{ sharedState.ingredientCount }})</span>
+                        <span v-if='link == "shopping list"'>({{ ingredientCount }})</span>
                     </router-link>
                 </li>
             </ul>

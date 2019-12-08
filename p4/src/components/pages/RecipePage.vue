@@ -90,7 +90,7 @@ export default {
             ingredient.add(ingredientName, ingredientQty);
 
             //app.store.ingredientCount = ingredient.count();
-            this.$store.commit('updateCartCount', ingredientQty);
+            this.$store.commit('updateIngredientCount', ingredientQty);
         },
         addToShoppingList: function(ingredientName) {
             let ingredient = new app.Ingredient();

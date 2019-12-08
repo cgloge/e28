@@ -31,7 +31,7 @@ export default {
             this.ingredient.remove(ingredientName);
 
             //app.store.ingredientCount = this.ingredient.count();
-            this.$store.commit('updateCartCount', this.ingredient.count());
+            this.$store.commit('updateIngredientCount', -1);
         }
     },
     mounted() {
