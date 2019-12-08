@@ -7,7 +7,7 @@
                 <li v-for='link in links' :key='link'>
                     <router-link exact :to='{ name: link }'>
                         {{ link }}
-                        <span v-if='link == "favorite recipes"'>({{ sharedState.favoriteCount }})</span>
+                        <span v-if='link == "favorite recipes"'>({{ favoriteCount }})</span>
                         <span v-if='link == "shopping list"'>({{ ingredientCount }})</span>
                     </router-link>
                 </li>
@@ -31,6 +31,10 @@ export default {
         };
     },
     computed: {
+        favoriteCount: function() {
+            return this.$store.state.favoriteCount;
+        },
+        
         ingredientCount: function() {
             return this.$store.state.ingredientCount;
         }
@@ -38,11 +42,9 @@ export default {
     mounted() {
         this.favorite = new app.Favorite();
         this.ingredient = new app.Ingredient();
-        app.store.favoriteCount = this.favorite.count();
-        
-        //app.store.ingredientCount = this.ingredient.count();
 
-        // Invoke the `setIngredientCount` mutation, passing the ingredient count as the payload
+         // Invoke the 'setIngredientCount' and 'setFavoriteCount' mutations, passing the ingredient / favorite count as the payload
+        this.$store.commit('setFavoriteCount', this.favorite.count());
         this.$store.commit('setIngredientCount', this.ingredient.count());
     }
 };

@@ -29,8 +29,6 @@ export default {
         },
         removeFromIngredients: function(ingredientName) {
             this.ingredient.remove(ingredientName);
-
-            //app.store.ingredientCount = this.ingredient.count();
             this.$store.commit('updateIngredientCount', -1);
         }
     },

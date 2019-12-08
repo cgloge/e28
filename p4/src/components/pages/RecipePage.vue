@@ -42,7 +42,7 @@
             <div id='ingredient-list'>
                 <h1>Ingredients:</h1>
                 <div v-for='item in recipe.ingredients' :key='item.ingredient'>
-                    <button @click='addToIngredients(item.ingredient, 1)' class ='ingredient'>
+                    <button @click='addToShoppingList(item.ingredient, 1)' class ='ingredient'>
                     {{ item.qty + ' ' + item.unit + ' ' + item.ingredient }}
                     <img src='./../../assets/images/shopping-list.png'>
                     </button>  
@@ -79,26 +79,19 @@ export default {
             let favorite = new app.Favorite();
             favorite.add(recipeId);
 
-            app.store.favoriteCount = favorite.count();
+            //app.store.favoriteCount = favorite.count();
+            this.$store.commit('updateFavoriteCount', favorite.count());
 
             this.addAlert = true;
 
             setTimeout(() => (this.addAlert = false), 2000);
         },
-        addToIngredients: function(ingredientName, ingredientQty) {
+        addToShoppingList: function(ingredientName, ingredientQty) {
             let ingredient = new app.Ingredient();
             ingredient.add(ingredientName, ingredientQty);
 
             //app.store.ingredientCount = ingredient.count();
             this.$store.commit('updateIngredientCount', ingredientQty);
-        },
-        addToShoppingList: function(ingredientName) {
-            let ingredient = new app.Ingredient();
-            ingredient.add(ingredientName);
-
-            app.store.ingredientCount = ingredient.count();
-
-            setTimeout(() => (this.addAlert = false), 2000);
         }
     }
 };
