@@ -46,6 +46,9 @@ export default {
          // Invoke the 'setIngredientCount' and 'setFavoriteCount' mutations, passing the ingredient / favorite count as the payload
         this.$store.commit('setFavoriteCount', this.favorite.count());
         this.$store.commit('setIngredientCount', this.ingredient.count());
+
+        // Dispatch the recipes from the recipes API to local storage
+        this.$store.dispatch('setRecipes');
     }
 };
 </script>

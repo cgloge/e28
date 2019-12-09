@@ -9,20 +9,17 @@
 <script>
 import ShowRecipe from './../ShowRecipe.vue';
 
-import * as app from './../../app.js';
-
 export default {
     name: 'RecipesPage',
     components: { ShowRecipe },
     data: function() {
         return {
-            recipes: null,
         };
     },
-    mounted() {
-        app.axios.get(app.config.api + 'recipes').then(response => {
-            this.recipes = response.data;
-        });
+    computed: {
+        recipes: function() {
+            return this.$store.state.recipes;
+        }
     }
 };
 </script>

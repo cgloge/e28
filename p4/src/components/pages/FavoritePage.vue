@@ -21,8 +21,7 @@ export default {
     data: function() {
         return {
             items: [],
-            favorite: null,
-            recipes: []
+            favorite: null
         };
     },
     methods: {
@@ -32,18 +31,17 @@ export default {
         removeFromFavorite: function(recipeId) {
             this.favorite.remove(recipeId);
 
-            app.store.favoriteCount = this.favorite.count();
+            this.$store.commit('updateFavoriteCount', -1);
         }
     },
     mounted() {
         this.favorite = new app.Favorite();
-
         this.items = this.favorite.getItems();
-
-        // Future wishlist: change this to pull from true DB
-        this.recipes = app.axios
-            .get(app.config.api + 'recipes')
-            .then(response => (this.recipes = response.data));
+    },
+    computed: {
+        recipes: function() {
+            return this.$store.state.recipes;
+        }
     }
 };
 </script>

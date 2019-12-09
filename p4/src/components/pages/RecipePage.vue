@@ -63,16 +63,8 @@ export default {
     props: ['id'],
     data: function() {
         return {
-            recipe: null,
             addAlert: false,
         };
-    },
-    mounted() {
-        app.axios
-            .get(app.config.api + '/recipes/' + this.id)
-            .then(response => {
-                this.recipe = response.data;
-            });
     },
     methods: {
         addToFavorites: function(recipeId) {
@@ -92,6 +84,11 @@ export default {
 
             //app.store.ingredientCount = ingredient.count();
             this.$store.commit('updateIngredientCount', ingredientQty);
+        }
+    },
+    computed: {
+        recipe() {
+            return this.$store.getters.getRecipeById(this.id);
         }
     }
 };
