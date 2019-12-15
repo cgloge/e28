@@ -134,6 +134,6 @@ describe('ShowProduct.vue', () => {
         // Assert our results
         expect(wrapper.text()).to.include(recipe.name)
         let foundRecipeLink = wrapper.find('[data-test="recipe-link"]').exists();
-        expect(foundProductLink).to.equal(true);
+        expect(foundRecipeLink).to.equal(true);
     })
 })
