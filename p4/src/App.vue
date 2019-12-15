@@ -26,7 +26,7 @@ export default {
     components: {},
     data: function() {
         return {
-            links: ['recipes', 'favorite recipes', 'shopping list'],
+            links: ['recipes', 'favorite recipes', 'shopping list', 'create recipe'],
             sharedState: app.store
         };
     },
