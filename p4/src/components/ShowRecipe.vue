@@ -1,5 +1,5 @@
 <template>
-    <div class='recipe'>
+    <div class='recipe' v-show='jsonLoaded == true'>
         <router-link data-test='recipe-link'
         :to='{ name: "recipe", params: {"id" : recipe.id }}'>
             <div class='recipe-name'>{{ recipe.name }}</div>
@@ -13,9 +13,15 @@
 </template>
 
 <script>
+
 export default {
     name: 'ShowRecipe',
-    props: ['recipe']
+    props: ['recipe'],
+    computed: {
+        jsonLoaded: function() {
+            return this.$store.state.jsonLoaded;
+        }
+    },
 };
 </script>
 

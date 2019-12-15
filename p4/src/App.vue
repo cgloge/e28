@@ -37,6 +37,10 @@ export default {
         
         ingredientCount: function() {
             return this.$store.state.ingredientCount;
+        },
+
+        jsonLoaded: function() {
+            return this.$store.state.jsonLoaded;
         }
     },
     mounted() {
@@ -46,6 +50,7 @@ export default {
          // Invoke the 'setIngredientCount' and 'setFavoriteCount' mutations, passing the ingredient / favorite count as the payload
         this.$store.commit('setFavoriteCount', this.favorite.count());
         this.$store.commit('setIngredientCount', this.ingredient.count());
+        this.$store.commit('setJsonLoaded', this.jsonLoaded);
 
         // Dispatch the recipes from the recipes API to local storage
         this.$store.dispatch('setRecipes');

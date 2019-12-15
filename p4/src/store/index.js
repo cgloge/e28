@@ -16,7 +16,8 @@ export default new Vuex.Store({
     plugins: [vuexPersist.plugin],
     state: {
         ingredientCount: 0,
-        favoriteCount: 0
+        favoriteCount: 0,
+        jsonLoaded: false
     },
     // Mutations are used to change state
     // Mutations can not be directly called; you commit them, e.g. store.commit('setProducts')
@@ -40,6 +41,9 @@ export default new Vuex.Store({
         },
         updateIngredientCount(state, payload) {
             state.ingredientCount += payload;
+        },
+        setJsonLoaded(state, payload) {
+            state.jsonLoaded += payload;
         }
     },
     // Actions will not mutate state; instead they will commit mutations to mutate the state
@@ -51,7 +55,8 @@ export default new Vuex.Store({
     actions: {
         setRecipes(context) {
             app.axios.get(app.config.api + 'recipes').then(response => {
-                context.commit('setRecipes', response.data)
+                context.commit('setRecipes', response.data);
+                context.commit('setJsonLoaded', true)
             });
         }
     },
