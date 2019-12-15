@@ -1,5 +1,5 @@
 <template>
-    <div class='recipe' v-show='jsonLoaded == true'>
+    <div class='recipe' v-show='jsonLoaded'>
         <router-link data-test='recipe-link'
         :to='{ name: "recipe", params: {"id" : recipe.id }}'>
             <div class='recipe-name'>{{ recipe.name }}</div>

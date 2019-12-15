@@ -43,7 +43,7 @@ export default new Vuex.Store({
             state.ingredientCount += payload;
         },
         setJsonLoaded(state, payload) {
-            state.jsonLoaded += payload;
+            state.jsonLoaded = payload;
         }
     },
     // Actions will not mutate state; instead they will commit mutations to mutate the state
