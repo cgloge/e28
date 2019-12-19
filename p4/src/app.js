@@ -9,5 +9,6 @@ export const config = {
 
 export let store = {
     favoriteCount: 0,
-    ingredientCount: 0
+    ingredientCount: 0,
+    jsonLoaded: false
 }
