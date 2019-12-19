@@ -322,6 +322,25 @@ PAGE SPECIFIC
         width: 100%;
         margin: 10px 0 0 0;
     }
+    input {
+        width: 500px;
+        height: 50px;
+        font-size: 1em;
+    }
+    textarea {
+        width: 500px;
+        height: 300px;
+        font-size: 1em;
+    }
+
+    button {
+        margin: 20px 0 0 0;
+        width: 250px;
+        height: 50px;
+        background: $gold;
+        color: white;
+        font-size: 1em;
+    }
 }
 
 /*----------------------------------------------------
